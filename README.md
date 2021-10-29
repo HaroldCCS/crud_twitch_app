@@ -33,17 +33,17 @@ endpoints crud_mysql
 
   GET: api/users/
   		
-			sin agregar parametros.
+	sin agregar parametros.
 			
-			traera todos los Users o tambien demoninados Streamers
+	traera todos los Users o tambien demoninados Streamers
 
 
 
   GET: api/users/:id
 	
-       Agregar id.
+   	Agregar id.
 			 
-       Buscara el User y retornara su información
+   	Buscara el User y retornara su información
 
 
 
@@ -69,17 +69,17 @@ endpoints crud_mysql
 			 
             update_twitch_data: boolean, obligatorio   //si es true, reemplazara la información actual de mysql con la mas actual del API Twitch.
             
-						nickname:     string, opcional
-            
-						last_game:    string, opcional
-            
-						url_image:    string, opcional
-            
-						title:        string, opcional
-            
-						is_live:      string, opcional
-            
-						description:  string: opcional
+            nickname:     string, opcional
+
+            last_game:    string, opcional
+
+            url_image:    string, opcional
+
+            title:        string, opcional
+
+            is_live:      string, opcional
+
+            description:  string: opcional
 						
        Buscara el User y modificara la información del mismo.
 
@@ -87,9 +87,9 @@ endpoints crud_mysql
 
   DELETE: api/users/:id
 	
-			 Agregar id.
+   	Agregar id.
        
-			 Buscara el User y sera eliminado (no se agrego la inhabilitacion).
+   	Buscara el User y sera eliminado (no se agrego la inhabilitacion).
     
 -----------------------------------------------------------------
 
@@ -98,69 +98,69 @@ endpoints crud_mongo
 
   GET: api/games/
        
-			 sin agregar parametros.
+   	sin agregar parametros.
        
-			 traera todos los Games agregados.
+   	traera todos los Games agregados.
 
 
 
   GET: api/games/:id
        
-			 Agregar id.
+   	Agregar id.
        
-			 Buscara el Game y retornara su información
+   	Buscara el Game y retornara su información
 
 
 
   GET: api/games/top
        
-			 sin agregar parametros.
+   	sin agregar parametros.
        
-			 Traera y mostrada los Games mas usados en Twitch
+   	Traera y mostrada los Games mas usados en Twitch
 
 
 
   POST: api/games/
        
-			 body:
+   	body:
             
-						id:          string, obligatorio  
+            id:          string, obligatorio  
             
-						name:        string, obligatorio  
+            name:        string, obligatorio  
             
-						description: string: opcional
+            description: string: opcional
             
-						category:    string: opcional
+            category:    string: opcional
             
-						users:       number: opcional     //si no se envia, es buscara automaticamente la cantidad de personas que juegan este Game (busqueda por name)
+            users:       number: opcional     //si no se envia, es buscara automaticamente la cantidad de personas que juegan este Game (busqueda por name)
        
-			 Buscara el User en la API Twitch guardara dicha información que coincida con el name_twitch.
-       
+   	Buscara el User en la API Twitch guardara dicha información que coincida con el name_twitch.
+      
        
 			 
    PUT: api/games/:id
        
-			 Agregar id
+   	Agregar id
        
-			 body:
+   	body:
             
-						name:        string, opcional  
+            name:        string, opcional  
             
-						description: string: opcional
+            description: string: opcional
             
-						category:    string: opcional
+            category:    string: opcional
             
-						users:       number: opcional
+            users:       number: opcional
        
-			 Buscara el User en la API Twitch guardara dicha información que coincida con el name_twitch.
+   	Buscara el User en la API Twitch guardara dicha información que coincida con el name_twitch.
              
        
 			 
   DELETE: api/games/:id
        
-			 Agregar id.
+   	Agregar id.
        
-			 Buscara el Game y sera eliminado (no se agrego la inhabilitacion).
+   	Buscara el Game y sera eliminado (no se agrego la inhabilitacion).
 
 -----------------------------------------------------------------
 
@@ -168,7 +168,7 @@ endpoints queries
 
 GET: api/queries/validatetoken
      
-		 sin agregar parametros.
+   	sin agregar parametros.
      
-		 Nos retornara si la conexion con el API Twitch es activa o no.
+   	Nos retornara si la conexion con el API Twitch es activa o no.
      
