@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import userRoutes from "../routes/user";
 import queriesRoutes from "../routes/queries";
+import gamesRoutes from "../routes/games";
 import cors from "cors";
 
 import dbSQL from "../db/mysql/connection";
@@ -13,6 +14,7 @@ class Server {
     private apiPaths = {
         users: "/api/users",
         queries: "/api/queries",
+        games: "/api/games",
     };
 
     constructor() {
@@ -73,6 +75,7 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.users, userRoutes);
         this.app.use(this.apiPaths.queries, queriesRoutes);
+        this.app.use(this.apiPaths.games, gamesRoutes);
     }
 
     listen() {

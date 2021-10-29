@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "description": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "category": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "users": {
+            "type": "number"
+        }
+    },
+    "additionalProperties": true,
+    "required": []
+}

@@ -16,6 +16,7 @@ exports.statusTokenTwitch = exports.statusDbMySql = exports.statusDbMongo = void
 const express_1 = __importDefault(require("express"));
 const user_1 = __importDefault(require("../routes/user"));
 const queries_1 = __importDefault(require("../routes/queries"));
+const games_1 = __importDefault(require("../routes/games"));
 const cors_1 = __importDefault(require("cors"));
 const connection_1 = __importDefault(require("../db/mysql/connection"));
 const connection_2 = __importDefault(require("../db/mongo/connection"));
@@ -25,8 +26,9 @@ class Server {
         this.apiPaths = {
             users: "/api/users",
             queries: "/api/queries",
+            games: "/api/games",
         };
-        this.app = (0, express_1.default)();
+        this.app = express_1.default();
         this.port = process.env.PORT || "8000";
         // Métodos iniciales
         this.dbConnectionMYSQL();
@@ -51,7 +53,7 @@ class Server {
     dbConnectionMONGO() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield (0, connection_2.default)(process.env.DB_MONGO_CONN || "withoutURL");
+                yield connection_2.default(process.env.DB_MONGO_CONN || "withoutURL");
                 exports.statusDbMongo = true;
                 console.log("Database Mongo online");
             }
@@ -64,7 +66,7 @@ class Server {
     tokenTwitch() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                yield (0, tokenAuthTwitch_1.default)();
+                yield tokenAuthTwitch_1.default();
                 exports.statusTokenTwitch = true;
                 console.log("Token successful");
             }
@@ -76,7 +78,7 @@ class Server {
     }
     middlewares() {
         // CORS
-        this.app.use((0, cors_1.default)());
+        this.app.use(cors_1.default());
         // Lectura del body
         this.app.use(express_1.default.json());
         // Carpeta pública
@@ -85,6 +87,7 @@ class Server {
     routes() {
         this.app.use(this.apiPaths.users, user_1.default);
         this.app.use(this.apiPaths.queries, queries_1.default);
+        this.app.use(this.apiPaths.games, games_1.default);
     }
     listen() {
         this.app.listen(this.port, () => {

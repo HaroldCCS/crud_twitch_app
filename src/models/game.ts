@@ -1,35 +1,21 @@
-import { Schema, model, connect } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 interface Game {
+  id: string;
   name: string;
-  email: string;
-  avatar?: string;
+  description?: string;
+  category?: string;
+  users?: number;
 }
 
 
 const schema = new Schema<Game>({
+  id: { type: String, required: true, unique: true },
   name: { type: String, required: true },
-  email: { type: String, required: true },
-  avatar: String
+  description: { type: String, required: false },
+  category: { type: String, required: false },
+  users: { type: Number, required: false }
 });
 
 
-export const GameModel = model<Game>('Game', schema);
-
-/*
-run().catch(err => console.log(err));
-
-async function run(): Promise<void> {
-  // 4. Connect to MongoDB
-  await connect('mongodb://localhost:27017/test');
-
-  const doc = new GameModel({
-    name: 'Bill',
-    email: 'bill@initech.com',
-    avatar: 'https://i.imgur.com/dM7Thhn.png'
-  });
-  await doc.save();
-
-  console.log(doc.email); // 'bill@initech.com'
-}
-*/
+export const GameModel = model<Game>('Games', schema);

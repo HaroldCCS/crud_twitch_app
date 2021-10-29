@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const queries_1 = require("../controllers/queries");
 const statusDB_1 = require("../middlewares/statusDB");
-const router = (0, express_1.Router)();
+const router = express_1.Router();
 router.use(statusDB_1.stateTokenTwitch);
 router.get('/validatetoken', queries_1.validationToken);
 // router.get('/:id',    getUsuario );

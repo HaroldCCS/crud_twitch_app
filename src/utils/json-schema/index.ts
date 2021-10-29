@@ -5,10 +5,14 @@ const optionsAjv = {
 };
 const ajv = new Ajv(optionsAjv)
 
-import schema_userRegister from "./userRegister.schema.json";
-import schema_userUpdate from "./userUpdate.schema.json";
+import schema_userRegister from "./users/userRegister.schema.json";
+import schema_userUpdate from "./users//userUpdate.schema.json";
+import schema_gameRegister from "./games/gameRegister.schema.json";
+import schema_gameUpdate from "./games//gameUpdate.schema.json";
 
 //register schemas
+ajv.addSchema(schema_gameRegister, "schema_gameRegister");
+ajv.addSchema(schema_gameUpdate, "schema_gameUpdate");
 ajv.addSchema(schema_userRegister, "schema_userRegister");
 ajv.addSchema(schema_userUpdate, "schema_userUpdate");
 

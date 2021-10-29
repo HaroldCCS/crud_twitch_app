@@ -10,9 +10,13 @@ const optionsAjv = {
     strictTypes: false
 };
 const ajv = new ajv_1.default(optionsAjv);
-const userRegister_schema_json_1 = __importDefault(require("./userRegister.schema.json"));
-const userUpdate_schema_json_1 = __importDefault(require("./userUpdate.schema.json"));
+const userRegister_schema_json_1 = __importDefault(require("./users/userRegister.schema.json"));
+const userUpdate_schema_json_1 = __importDefault(require("./users//userUpdate.schema.json"));
+const gameRegister_schema_json_1 = __importDefault(require("./games/gameRegister.schema.json"));
+const gameUpdate_schema_json_1 = __importDefault(require("./games//gameUpdate.schema.json"));
 //register schemas
+ajv.addSchema(gameRegister_schema_json_1.default, "schema_gameRegister");
+ajv.addSchema(gameUpdate_schema_json_1.default, "schema_gameUpdate");
 ajv.addSchema(userRegister_schema_json_1.default, "schema_userRegister");
 ajv.addSchema(userUpdate_schema_json_1.default, "schema_userUpdate");
 exports.default = ajv;
@@ -51,7 +55,7 @@ function processValidationBodyJsonSchema(body, nameSchema) {
             message: 'Please send a correct body request.',
             type: 'error'
         };
-        const errors = (0, exports.parseSimpleErrors)(validateSchema.errors);
+        const errors = exports.parseSimpleErrors(validateSchema.errors);
         const messageError = `Error al realizar las validaciones [json-schema] : ${JSON.stringify(errors)}`;
         return { status: true, response: response, messageError: messageError, method: method };
     }

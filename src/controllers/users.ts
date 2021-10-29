@@ -154,10 +154,8 @@ export const deleteUsuario = async( req: Request , res: Response ) => {
         });
     }
 
-    await usuario.update({ estado: false });
-
     await usuario.destroy().then(() => {
-        res.json( {usuario});
+        res.json( {msg: "User delete successfull"});
     }).catch((err: any) => {
         res.json( {msg: "Error to create user"} );
     });

@@ -12,17 +12,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getChannelByName = void 0;
+exports.getTopGames = exports.getChannelByName = void 0;
 const axios_1 = __importDefault(require("axios"));
 const tokenAuthTwitch_1 = require("./tokenAuthTwitch");
 const getChannelByName = (name) => __awaiter(void 0, void 0, void 0, function* () {
     let url = `https://api.twitch.tv/helix/search/channels?query=${name}`;
-    let params = {
+    let params2 = {
         headers: {
             Authorization: `Bearer ${tokenAuthTwitch_1.token}`,
             "Client-ID": process.env.ClientIDTwitch || ""
         }
     };
+    return getAxios(url, params2);
+});
+exports.getChannelByName = getChannelByName;
+const getTopGames = () => __awaiter(void 0, void 0, void 0, function* () {
+    let url = `https://api.twitch.tv/helix/games/top`;
+    let params2 = {
+        headers: {
+            Authorization: `Bearer ${tokenAuthTwitch_1.token}`,
+            "Client-ID": process.env.ClientIDTwitch || ""
+        }
+    };
+    return getAxios(url, params2);
+});
+exports.getTopGames = getTopGames;
+const getAxios = (url, params) => __awaiter(void 0, void 0, void 0, function* () {
     return new Promise((resolve, reject) => __awaiter(void 0, void 0, void 0, function* () {
         yield axios_1.default
             .get(url, params)
@@ -34,6 +49,5 @@ const getChannelByName = (name) => __awaiter(void 0, void 0, void 0, function* (
         });
     }));
 });
-exports.getChannelByName = getChannelByName;
 exports.default = exports.getChannelByName;
 //# sourceMappingURL=callsTwitch.js.map

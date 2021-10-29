@@ -18,7 +18,7 @@ const tokenAuthTwitch_1 = require("../services/tokenAuthTwitch");
 const validationToken = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let resReturn;
     try {
-        resReturn = yield (0, tokenAuthTwitch_1.validateToken)();
+        resReturn = yield tokenAuthTwitch_1.validateToken();
     }
     catch (error) {
         resReturn = error;
