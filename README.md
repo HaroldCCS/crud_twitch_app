@@ -23,7 +23,7 @@ La conexion a Mongo es online, por lo que dichos endpoints funcionarian en cualq
 Datos de conexion a Twitch en el .env
 No se agrego authentication a ningun endpoint.
 
-
+POSTMAN: https://drive.google.com/drive/folders/1s3AWx9H0jwiEnuD09vIUpGuFz9ye6GFs?usp=sharing
 Adjunto esta pequeña documentación de los endpoint, (sera reemplazada por un swagger)
 
 -----------------------------------------------------------------
