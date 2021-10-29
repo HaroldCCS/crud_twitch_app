@@ -1,0 +1,35 @@
+{
+    "type": "object",
+    "properties": {
+        "update_twitch_data": {
+            "type": "boolean"
+        },
+        "nickname": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "last_game": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "url_image": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "title": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "is_live": {
+            "type": "boolean"
+        },
+        "description": {
+            "type": "string",
+            "maxLength": 255
+        }
+    },
+    "additionalProperties": true,
+    "required": [
+        "update_twitch_data"
+    ]
+}

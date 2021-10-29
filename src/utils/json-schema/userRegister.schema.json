@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "name_twitch": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "nickname": {
+            "type": "string",
+            "maxLength": 255
+        },
+        "description": {
+            "type": "string",
+            "maxLength": 255
+        }
+    },
+    "additionalProperties": true,
+    "required": [
+        "name_twitch"
+    ]
+}
