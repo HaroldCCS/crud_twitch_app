@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const db = (url) => __awaiter(void 0, void 0, void 0, function* () {
-    return mongoose_1.connect(url);
+    return (0, mongoose_1.connect)(url);
 });
 exports.default = db;
 //# sourceMappingURL=connection.js.map

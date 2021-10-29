@@ -51,7 +51,7 @@ function processValidationBodyJsonSchema(body, nameSchema) {
             message: 'Please send a correct body request.',
             type: 'error'
         };
-        const errors = exports.parseSimpleErrors(validateSchema.errors);
+        const errors = (0, exports.parseSimpleErrors)(validateSchema.errors);
         const messageError = `Error al realizar las validaciones [json-schema] : ${JSON.stringify(errors)}`;
         return { status: true, response: response, messageError: messageError, method: method };
     }

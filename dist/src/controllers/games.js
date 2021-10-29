@@ -45,12 +45,12 @@ exports.getUsuario = getUsuario;
 const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
-        let dataValidation = index_1.processValidationBodyJsonSchema(body, "schema_gameRegister");
+        let dataValidation = (0, index_1.processValidationBodyJsonSchema)(body, "schema_gameRegister");
         if (dataValidation.status) {
             console.error(dataValidation.messageError);
             return res.json(dataValidation.response);
         }
-        let data = yield callsTwitch_1.default(body.name_twitch);
+        let data = yield (0, callsTwitch_1.default)(body.name_twitch);
         let foundStreamer = data.data.find((element) => element.display_name == body.name_twitch || element.broadcaster_login == body.name_twitch);
         if (!foundStreamer) {
             return res.json({ data: "Streamer not found" });

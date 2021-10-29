@@ -7,7 +7,7 @@ const schema = new mongoose_1.Schema({
     email: { type: String, required: true },
     avatar: String
 });
-exports.GameModel = mongoose_1.model('Game', schema);
+exports.GameModel = (0, mongoose_1.model)('Game', schema);
 /*
 run().catch(err => console.log(err));
 

@@ -37,12 +37,12 @@ exports.getUsuario = getUsuario;
 const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
     try {
-        let dataValidation = index_1.processValidationBodyJsonSchema(body, "schema_userRegister");
+        let dataValidation = (0, index_1.processValidationBodyJsonSchema)(body, "schema_userRegister");
         if (dataValidation.status) {
             console.error(dataValidation.messageError);
             return res.json(dataValidation.response);
         }
-        let data = yield callsTwitch_1.default(body.name_twitch);
+        let data = yield (0, callsTwitch_1.default)(body.name_twitch);
         let foundStreamer = data.data.find((element) => element.display_name == body.name_twitch || element.broadcaster_login == body.name_twitch);
         if (!foundStreamer) {
             return res.json({ data: "Streamer not found" });
@@ -86,7 +86,7 @@ const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     const { id } = req.params;
     const { body } = req;
     try {
-        let dataValidation = index_1.processValidationBodyJsonSchema(body, "schema_userUpdate");
+        let dataValidation = (0, index_1.processValidationBodyJsonSchema)(body, "schema_userUpdate");
         if (dataValidation.status) {
             console.error(dataValidation.messageError);
             return res.json(dataValidation.response);
@@ -99,7 +99,7 @@ const putUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         }
         let dataUpdate = {};
         if (body.update_twitch_data) {
-            let data = yield callsTwitch_1.default(usuario.dataValues.name);
+            let data = yield (0, callsTwitch_1.default)(usuario.dataValues.name);
             let foundStreamer = data.data.find((element) => element.display_name == usuario.dataValues.name || element.broadcaster_login == usuario.dataValues.name);
             dataUpdate = {
                 nick_name: body.nickname || foundStreamer.display_name,
